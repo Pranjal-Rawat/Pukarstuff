@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pukar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .logo {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo img {
+            width: 33%;
+            border: 3px solid white;
+            border-radius: 50px;
+            display: block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .logo img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.6) url(Pukarbackground.jpg);
+            background-size: cover;
+            background-blend-mode: darken;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+        
+        .navlist {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+        
+        .navlist li {
+            list-style: none;
+            padding: 10px 20px;
+        }
+        
+        .navlist li a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s, transform 0.3s;
+        }
+        
+        .navlist li a:hover {
+            color: grey;
+            transform: scale(1.1);
+        }
+        
+        .rightNav {
+            display: flex;
+            align-items: center;
+        }
+        
+        #search {
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid grey;
+            border-radius: 9px;
+        }
+        
+        .btn-search {
+            padding: 6px 10px;
+            margin-left: 10px;
+            border-radius: 8px;
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .btn-search:hover {
+            background-color: #ddd;
+            transform: scale(1.05);
+        }
+        
+        .background {
+            background: rgba(0, 0, 0, 0.6) url('Pukarbackground.jpg');
+            background-size: cover;
+            background-blend-mode: darken;
+            padding: 50px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .boxmain {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .firsthalf, .secondhalf {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .firsthalf {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeInLeft 1s ease-out;
+        }
+        
+        .secondhalf img {
+            width: 100%;
+            border: 4px solid white;
+            border-radius: 14px;
+            display: block;
+            margin: auto;
+            animation: fadeInRight 1s ease-out;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .secondhalf img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+        
+        .textbig {
+            font-size: 40px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .textsmall {
+            font-size: 20px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        .btn {
+            padding: 8px 18px;
+            margin: 7px 3px;
+            border: 2px solid white;
+            border-radius: 10px;
+            background: none;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .secRight, .secLeft {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 0;
+        }
+        
+        .para {
+            flex: 1;
+            padding: 20px;
+            min-width: 300px;
+        }
+        
+        .thumbnail {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            max-width: 300px;
+            border: 4px solid white;
+            border-radius: 14px;
+            animation: fadeIn 1s ease-out;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .thumbnail img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navlist {
+                display: none;
+            }
+        
+            .navbar {
+                flex-direction: column;
+            }
+        
+            .rightNav {
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+            }
+        
+            .rightNav input, .rightNav button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+        
+        
+          
+    </style>
+</head>
+
+<body>
+    <nav class="navbar background">
+        <ul class="navlist">
+            <div class="logo"><img src="Pukarbackground.jpg" alt="logo"></div>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#Blog">Blog</a></li>
+            <li><a href="#Aboutus">About us</a></li>
+            <li><a href="#Contact">Contact us</a></li>
+        </ul>
+        <div class="rightNav">
+            <input type="text" name="search" id="search">
+            <button class="btn-search" aria-placeholder="Search">search</button>
+        </div>
+    </nav>
+    <section class="background firstSection">
+        <div class="boxmain">
+            <div class="firsthalf">
+                <p class="textbig">"Educatioin is the only thing which no one can take away from you</p>
+                <p class="textsmall">Despite significant investments by the government in rural education,
+                    there remains a gap in addressing the complex educational challenges faced by rural communities
+                    in India. NGOs play a crucial role in bridging this gap by leveraging
+                    their grassroots presence to effectively implement rural education programmes.
+                    With a focus on community engagement, NGOs can deliver targeted solutions that address contextual
+                    needs of education at the local level. </p>
+                <div class="buttons">
+                    <button class="btn">Donnate</button>
+                    <button class="btn">Suggestion Box</button>
+                </div>
+            </div>
+            <div class="second">
+                <img src="Pukarbackground.jpg" alt="LogoImage">
+            </div>
+        </div>
+    </section>
+    <section class="secRight">
+        <div class="para">
+            <p class="secTag textbig">THE END of illitricity </p>
+            <p class="secTag textsmall">ssacccccccccccccccccccd
+                cdscdscccccccccccccccccccccccdsav
+                regrthteyhhythrtehthetrhgretfgrtegetrgerthgertfgvrt
+                gertgertgertgertgrtfbetrfbvetrgv5trgvrtgvetrgvtrgvetyhgvet 5e6rt hgert g
+                rtf rwertfh 5t hetyr therther tdhrthertd hertgsh etrh rt betgf ngf brtd bgrs
+                b5t3rve t
+                nb
+                fd hert
+                fd rtf fv rtfdvc rtf gfh ber htf h5rt hty ty jhfg thf ghrg nty h5yt hbjfewg ufderg eruerhfrhfoewiurg eg
+                ewg
+                erhg iuerwh iueriug eri hrwth
+                er gher hrwugh urwugh eru grg er e re rugherwhgfrwuhgfiuersdfgh ier g
+            </p>
+        </div>
+        <div class="thumbnail">
+            <img src="Pukarbackground.jpg" alt="pukarlogo" class="imgFluid">
+        </div>
+    </section>
+
+
+
+    <section class="secLeft">
+        <div class="para">
+            <p class="secTag textbig">THE END of illitricity </p>
+            <p class="secTag textsmall">ssacccccccccccccccccccd
+                cdscdscccccccccccccccccccccccdsav
+                regrthteyhhythrtehthetrhgretfgrtegetrgerthgertfgvrt
+                gertgertgertgertgrtfbetrfbvetrgv5trgvrtgvetrgvtrgvetyhgvet 5e6rt hgert g
+                rtf rwertfh 5t hetyr therther tdhrthertd hertgsh etrh rt betgf ngf brtd bgrs
+                b5t3rve t
+                nb
+                fd hert
+                fd rtf fv rtfdvc rtf gfh ber htf h5rt hty ty jhfg thf ghrg nty h5yt hbjfewg ufderg eruerhfrhfoewiurg eg
+                ewg
+                erhg iuerwh iueriug eri hrwth
+                er gher hrwugh urwugh eru grg er e re rugherwhgfrwuhgfiuersdfgh ier g
+            </p>
+        </div>
+        <div class="thumbnail">
+            <img src="Pukarbackground.jpg" alt="pukarlogo" class="imgFluid">
+        </div>
+    </section>
+
+
+    <section class="secRight">
+        <div class="para">
+            <p class="secTag textbig">THE END of illitricity </p>
+            <p class="secTag textsmall">ssacccccccccccccccccccd
+                cdscdscccccccccccccccccccccccdsav
+                regrthteyhhythrtehthetrhgretfgrtegetrgerthgertfgvrt
+                gertgertgertgertgrtfbetrfbvetrgv5trgvrtgvetrgvtrgvetyhgvet 5e6rt hgert g
+                rtf rwertfh 5t hetyr therther tdhrthertd hertgsh etrh rt betgf ngf brtd bgrs
+                b5t3rve t
+                nb
+                fd hert
+                fd rtf fv rtfdvc rtf gfh ber htf h5rt hty ty jhfg thf ghrg nty h5yt hbjfewg ufderg eruerhfrhfoewiurg eg
+                ewg
+                erhg iuerwh iueriug eri hrwth
+                er gher hrwugh urwugh eru grg er e re rugherwhgfrwuhgfiuersdfgh ier g
+            </p>
+        </div>
+        <div class="thumbnail">
+            <img src="Pukarbackground.jpg" alt="pukarlogo" class="imgFluid">
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pukaar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgba(0, 0, 0, 0.6) url('https://static.wixstatic.com/media/9dabf8_a2106a364e1e4024a7fc019f77166318~mv2.jpg/v1/fill/w_476,h_298,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/9dabf8_a2106a364e1e4024a7fc019f77166318~mv2.jpg') no-repeat center center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-size: cover;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2) url('https://static.wixstatic.com/media/9dabf8_a2106a364e1e4024a7fc019f77166318~mv2.jpg/v1/fill/w_476,h_298,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/9dabf8_a2106a364e1e4024a7fc019f77166318~mv2.jpg') no-repeat center center;
+            background-size: cover;
+            background-blend-mode: darken;
+            padding: 40px 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            width: 80px;
+            border: 3px solid white;
+            border-radius: 50%;
+        }
+
+        .navlist {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            flex-wrap: wrap;
+            margin-left: 10px;
+        }
+
+        .navlist li {
+            margin-left: 20px;
+        }
+
+        .navlist li a {
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .navlist li a:hover {
+            color: grey;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+
+        .right-nav {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        #search {
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid grey;
+            border-radius: 9px;
+        }
+
+        .right-nav button {
+            margin-left: 10px;
+            padding: 5px 15px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .right-nav button:hover {
+            background-color: grey;
+            color: white;
+        }
+
+        /* Section styles */
+        .background-sect {
+            background: rgba(0, 0, 0, 0.6) url('https://static.wixstatic.com/media/9dabf8_a2106a364e1e4024a7fc019f77166318~mv2.jpg/v1/fill/w_476,h_298,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/9dabf8_a2106a364e1e4024a7fc019f77166318~mv2.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .box-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .first-half, .second-half {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .text-big {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .text-small {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .buttons .btn {
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .buttons .btn:hover {
+            background-color: maroon;
+            transform: scale(1.1);
+        }
+
+        .second-half img {
+            transition: transform 0.3s ease;
+        }
+        
+        .second-half img:hover {
+            transform: scale(1.1);
+        }
+        
+
+        .bottom-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-top: 1px solid #ccc;
+        }
+        
+        .comment-box {
+            margin-top: 20px;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .right-nav {
+                margin-top: 10px;
+            }
+
+            .background-sect {
+                padding: 20px;
+            }
+
+            .text-big {
+                font-size: 20px;
+            }
+
+            .text-small {
+                font-size: 14px;
+            }
+
+            .box-main {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .first-half, .second-half {
+                padding: 10px;
+            }
+
+            .logo img {
+                width: 60px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .navbar {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .background-sect {
+                padding: 50px 20px;
+            }
+
+            .box-main {
+                flex-direction: row;
+            }
+
+            .first-half, .second-half {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar background">
+        <div class="logo">
+            <img src="Pukarbackground.jpg" alt="Pukar logo">
+        </div>
+        <ul class="navlist">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#aboutus">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <div class="right-nav">
+            <input type="text" name="search" id="search">
+            <button class="btn" aria-placeholder="Search">search</button>
+    </nav>
+    <section class="background-sect">
+        <div class="box-main">
+            <div class="first-half">
+                <p class="text-big">"Education is the only thing which no one can take away from you"</p>
+                <p class="text-small">
+                    Despite significant investments by the government in rural education,
+                    there remains a gap in addressing the complex educational challenges faced by rural communities
+                    in India. NGOs play a crucial role in bridging this gap by leveraging
+                    their grassroots presence to effectively implement rural education programmes.
+                    With a focus on community engagement, NGOs can deliver targeted solutions that address contextual
+                    needs of education at the local level.
+                </p>
+                <div class="buttons">
+                    <button class="btn">Donate</button>
+                    <button class="btn">Suggestion Box</button>
+                </div>
+            </div>
+            <div class="second-half">
+                <img src="Pukarbackground.jpg" alt="Educational background">
+            </div>
+        </div>
+        <div class="comment-box">
+            <textarea id="search" name="comment" rows="10" cols="50" placeholder="Type your comment here..."></textarea>
+            <button class="btn">Submit</button>
+        </div>
+    </section>
+</body>
+</html>
